@@ -1,0 +1,53 @@
+[
+    {
+        "question": "What is the capital of France?",
+        "correct": "Paris",
+        "incorrect": ["London", "Berlin", "Madrid"]
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "correct": "Mars",
+        "incorrect": ["Venus", "Jupiter", "Saturn"]
+    },
+    {
+        "question": "What is the largest ocean on Earth?",
+        "correct": "Pacific Ocean",
+        "incorrect": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"]
+    },
+    {
+        "question": "Who painted the Mona Lisa?",
+        "correct": "Leonardo da Vinci",
+        "incorrect": ["Vincent van Gogh", "Pablo Picasso", "Michelangelo"]
+    },
+    {
+        "question": "What is the smallest prime number?",
+        "correct": "2",
+        "incorrect": ["1", "3", "5"]
+    },
+    {
+        "question": "In which year did World War II end?",
+        "correct": "1945",
+        "incorrect": ["1943", "1944", "1946"]
+    },
+    {
+        "question": "What is the chemical symbol for gold?",
+        "correct": "Au",
+        "incorrect": ["Go", "Gd", "Ag"]
+    },
+    {
+        "question": "Which programming language is known as the 'language of the web'?",
+        "correct": "JavaScript",
+        "incorrect": ["Python", "Java", "C++"]
+    },
+    {
+        "question": "What is the speed of light in a vacuum?",
+        "correct": "299,792,458 meters per second",
+        "incorrect": ["150,000,000 meters per second", "450,000,000 meters per second", "100,000,000 meters per second"]
+    },
+    {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "correct": "William Shakespeare",
+        "incorrect": ["Charles Dickens", "Jane Austen", "Mark Twain"]
+    }
+]
+
