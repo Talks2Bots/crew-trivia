@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Trivia Game</h1>
+            <div class="score-display">
+                <span>Score: <span id="score">0</span></span>
+            </div>
+        </header>
+
+        <div id="game-area">
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen">
+                <h2>Welcome to Trivia!</h2>
+                <p>Test your knowledge with our trivia questions.</p>
+                <button id="start-btn" class="btn btn-primary">Start Game</button>
+            </div>
+
+            <!-- Question Screen -->
+            <div id="question-screen" class="screen hidden">
+                <div class="question-header">
+                    <span class="question-number">Question <span id="current-question-num">1</span> of <span id="total-questions">0</span></span>
+                </div>
+                <div class="question-content">
+                    <h2 id="question-text"></h2>
+                    <div id="answers-container" class="answers"></div>
+                </div>
+                <div class="feedback" id="feedback"></div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen hidden">
+                <h2>Game Over!</h2>
+                <div class="results-content">
+                    <div class="final-score">
+                        <p class="score-label">Your Score</p>
+                        <p class="score-value"><span id="final-score">0</span> / <span id="max-score">0</span></p>
+                        <p class="score-percentage" id="score-percentage">0%</p>
+                    </div>
+                    <button id="restart-btn" class="btn btn-primary">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
