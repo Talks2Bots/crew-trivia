@@ -48,6 +48,16 @@
         "question": "Who wrote 'Romeo and Juliet'?",
         "correct": "William Shakespeare",
         "incorrect": ["Charles Dickens", "Jane Austen", "Mark Twain"]
+    },
+    {
+        "question": "How many players are on a standard basketball team on the court at one time?",
+        "correct": "5",
+        "incorrect": ["6", "7", "4"]
+    },
+    {
+        "question": "How many points is a free throw worth in basketball?",
+        "correct": "1",
+        "incorrect": ["2", "3", "4"]
     }
 ]
 
