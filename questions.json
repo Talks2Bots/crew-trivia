@@ -1,25 +1,33 @@
 [
     {
-        "question": "What is the capital of France?",
-        "correct": "Paris",
-        "incorrect": ["London", "Berlin", "Madrid"]
+        "category": "Books",
+        "question": "Who wrote Jane Eyre?",
+        "options": ["Emily Bronte", "Jane Austen", "Charlotte Bronte", "Virginia Woolf"],
+        "answer": "C"
     },
     {
-        "question": "Which planet is known as the Red Planet?",
-        "correct": "Mars",
-        "incorrect": ["Venus", "Jupiter", "Saturn"]
+        "category": "Books",
+        "question": "In what novel does Raskolnikov murder his landlady?",
+        "options": ["War and Peace", "The Demons", "Crime and Punishment", "Alice in Wonderland"],
+        "answer": "C"
     },
     {
-        "question": "What is the largest ocean on Earth?",
-        "correct": "Pacific Ocean",
-        "incorrect": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"]
+        "category": "Books",
+        "question": "Who wrote '1984'?",
+        "options": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "H.G. Wells"],
+        "answer": "A"
     },
     {
-        "question": "Who painted the Mona Lisa?",
-        "correct": "Leonardo da Vinci",
-        "incorrect": ["Vincent van Gogh", "Pablo Picasso", "Michelangelo"]
+        "category": "Books",
+        "question": "What is the name of the wizard school in the Harry Potter series?",
+        "options": ["Hogwarts", "Beauxbatons", "Durmstrang", "Ilvermorny"],
+        "answer": "A"
     },
     {
+        "category": "Books",
+        "question": "In 'The Great Gatsby', what color is the light at the end of Daisy's dock?",
+        "options": ["Red", "Green", "Blue", "Yellow"],
+        "answer": "B"
         "question": "What is the smallest prime number?",
         "correct": "2",
         "incorrect": ["1", "3", "5"]
@@ -60,4 +68,3 @@
         "incorrect": ["2", "3", "4"]
     }
 ]
-

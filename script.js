@@ -19,6 +19,7 @@ const totalQuestions = document.getElementById('total-questions');
 const finalScore = document.getElementById('final-score');
 const maxScore = document.getElementById('max-score');
 const scorePercentage = document.getElementById('score-percentage');
+const categoryBadge = document.getElementById('category-badge');
 
 // Load questions from JSON file
 async function loadQuestions() {
@@ -90,6 +91,7 @@ function displayQuestion() {
     const question = questions[currentQuestionIndex];
     questionText.textContent = question.question;
     currentQuestionNum.textContent = currentQuestionIndex + 1;
+    categoryBadge.textContent = question.category || '';
     
     // Clear previous answers
     answersContainer.innerHTML = '';
@@ -97,25 +99,29 @@ function displayQuestion() {
     feedback.className = 'feedback';
     selectedAnswer = null;
 
-    // Shuffle answers
-    const answers = [...question.incorrect, question.correct];
-    shuffleArray(answers);
+    // Get the correct answer text based on the answer letter
+    const answerLetter = question.answer.toUpperCase();
+    const answerIndex = answerLetter.charCodeAt(0) - 65; // Convert A=0, B=1, C=2, D=3
+    const correctAnswer = question.options[answerIndex];
 
-    // Create answer buttons
-    answers.forEach((answer, index) => {
+    // Create answer buttons with labels (A, B, C, D)
+    question.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.className = 'answer-btn';
-        button.textContent = answer;
-        button.addEventListener('click', () => selectAnswer(answer, question.correct, button));
+        const letter = String.fromCharCode(65 + index); // A, B, C, D
+        button.textContent = `${letter}) ${option}`;
+        button.dataset.letter = letter;
+        button.dataset.answer = option;
+        button.addEventListener('click', () => selectAnswer(letter, question.answer, correctAnswer, button));
         answersContainer.appendChild(button);
     });
 }
 
 // Handle answer selection
-function selectAnswer(selected, correct, buttonElement) {
+function selectAnswer(selectedLetter, correctLetter, correctAnswerText, buttonElement) {
     if (selectedAnswer !== null) return; // Prevent multiple selections
 
-    selectedAnswer = selected;
+    selectedAnswer = selectedLetter;
     const allButtons = document.querySelectorAll('.answer-btn');
     
     // Disable all buttons
@@ -123,21 +129,21 @@ function selectAnswer(selected, correct, buttonElement) {
 
     // Mark correct and incorrect answers
     allButtons.forEach(btn => {
-        if (btn.textContent === correct) {
+        if (btn.dataset.letter === correctLetter.toUpperCase()) {
             btn.classList.add('correct');
-        } else if (btn.textContent === selected && selected !== correct) {
+        } else if (btn.dataset.letter === selectedLetter && selectedLetter !== correctLetter.toUpperCase()) {
             btn.classList.add('incorrect');
         }
     });
 
     // Update score and show feedback
-    if (selected === correct) {
+    if (selectedLetter.toUpperCase() === correctLetter.toUpperCase()) {
         score++;
         updateScoreDisplay();
         feedback.textContent = 'Correct! ✓';
         feedback.className = 'feedback correct';
     } else {
-        feedback.textContent = `Incorrect! The correct answer is: ${correct}`;
+        feedback.textContent = `Incorrect! The correct answer is: ${correctLetter.toUpperCase()}) ${correctAnswerText}`;
         feedback.className = 'feedback incorrect';
     }
 
