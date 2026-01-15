@@ -21,6 +21,10 @@ const finalScore = document.getElementById('final-score');
 const maxScore = document.getElementById('max-score');
 const scorePercentage = document.getElementById('score-percentage');
 const topicSelect = document.getElementById('topic-select');
+const exitBtn = document.getElementById('exit-btn');
+const exitModal = document.getElementById('exit-modal');
+const confirmExitBtn = document.getElementById('confirm-exit-btn');
+const cancelExitBtn = document.getElementById('cancel-exit-btn');
 
 // Load topics manifest
 async function loadTopics() {
@@ -211,6 +215,73 @@ startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', () => {
     initGame();
 });
+
+// Exit button functionality
+if (exitBtn && exitModal) {
+    exitBtn.addEventListener('click', () => {
+        // Show confirmation modal
+        exitModal.classList.remove('hidden');
+    });
+}
+
+// Handle exit confirmation
+if (confirmExitBtn) {
+    confirmExitBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+        
+        // Hide modal immediately
+        if (exitModal) {
+            exitModal.classList.add('hidden');
+        }
+        
+        // Reset game state
+        currentQuestionIndex = 0;
+        score = 0;
+        selectedAnswer = null;
+        questions = [];
+        updateScoreDisplay();
+        
+        // Show start screen immediately
+        showScreen('start');
+        
+        // Reinitialize game in background (don't await - let it happen async)
+        initGame().catch(error => {
+            console.error('Error reinitializing game:', error);
+            // Even if initGame fails, we're already on the start screen
+        });
+    });
+}
+
+// Handle exit cancellation
+if (cancelExitBtn && exitModal) {
+    cancelExitBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+        exitModal.classList.add('hidden');
+    });
+}
+
+// Close modal when clicking outside of it
+if (exitModal) {
+    exitModal.addEventListener('click', (e) => {
+        // Only close if clicking directly on the modal background, not on modal-content
+        if (e.target === exitModal) {
+            exitModal.classList.add('hidden');
+        }
+    });
+    
+    // Prevent clicks inside modal-content from closing the modal
+    const modalContent = exitModal.querySelector('.modal-content');
+    if (modalContent) {
+        modalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+}
+
+// Ensure modal is hidden on page load
+if (exitModal) {
+    exitModal.classList.add('hidden');
+}
 
 // Initialize game on page load
 initGame();
