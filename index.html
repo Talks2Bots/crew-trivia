@@ -14,6 +14,9 @@
                 <span>Score: <span id="score">0</span></span>
             </div>
         </header>
+        
+        <!-- Exit Button (visible on all screens) -->
+        <button id="exit-btn" class="btn btn-exit">Exit</button>
 
         <div id="game-area">
             <!-- Start Screen -->
@@ -50,6 +53,18 @@
                     </div>
                     <button id="restart-btn" class="btn btn-primary">Play Again</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Exit Game?</h3>
+            <p>This will reset your current game progress. Are you sure you want to exit?</p>
+            <div class="modal-buttons">
+                <button id="confirm-exit-btn" class="btn btn-danger">Exit</button>
+                <button id="cancel-exit-btn" class="btn btn-secondary">Cancel</button>
             </div>
         </div>
     </div>
